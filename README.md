@@ -1,2 +1,0 @@
-# weatherAPI
-Created with CodeSandbox

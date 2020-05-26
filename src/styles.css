@@ -1,0 +1,25 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  color: #fff;
+}
+
+.Report {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: rgb(44, 135, 255);
+  width: 100%;
+  height: 100vh;
+}
+
+.nightMode {
+  background-color: rgb(6, 50, 107);
+}
