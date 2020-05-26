@@ -1,14 +1,19 @@
 body {
   padding: 0;
   margin: 0;
-  overflow: hidden;
 }
 
 .App {
   font-family: sans-serif;
   text-align: center;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+  height: 100vh;
+  background: rgb(44, 135, 255);
 }
 
 h1,
@@ -16,7 +21,8 @@ h2,
 h3,
 h4,
 h5,
-h6 p,
+h6,
+p,
 span,
 a,
 div {
@@ -29,10 +35,8 @@ div {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: rgb(44, 135, 255);
   width: 100%;
-  height: 100vh;
+  overflow: hidden;
 }
 
 .nightMode {
