@@ -1,14 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
-const API = "https://api.weatherapi.com/v1/current.json";
-const API_KEY = "d46f7b4a013944ba8b1125130202605";
+import QueryForm from "./QueryForm";
 
-const Report = () => {
-  const [weather, setWeather] = useState("No Location Selected");
+const Report = (props) => {
+  const {
+    inputValue,
+    query,
+    weather,
+    api_url,
+    setWeather,
+    setInputValue,
+    setQuery
+  } = props;
   useEffect(() => {
     async function fetch() {
-      const res = await axios.get(`${API}?key=${API_KEY}&q=le111rx`);
+      const res = await axios.get(api_url);
       const data = res.data;
       setWeather({
         town: data.location.name,
@@ -21,10 +28,16 @@ const Report = () => {
       });
     }
     fetch();
-  }, []);
+  }, [query]);
   const cloudStyle = `fas fa-cloud ${weather.tempC <= 30 && "rainCloud"}`;
+
   return (
-    <div className={weather.time_hours >= 19 ? "Report nightMode" : "Report"}>
+    <div
+      className={
+        weather.time_hours >= 19 || weather.time_hours <= 6
+          ? "Report nightMode"
+          : "Report"
+      }>
       <i id="cloud1" className={cloudStyle} />
       <i id="cloud2" className={cloudStyle} />
       <i id="cloud3" className={cloudStyle} />
@@ -38,6 +51,13 @@ const Report = () => {
       <h5>
         {weather.tempC}&#730;c - {weather.tempF}&#730;F
       </h5>
+
+      <QueryForm
+        setInputValue={setInputValue}
+        inputValue={inputValue}
+        setWeather={setWeather}
+        setQuery={setQuery}
+      />
     </div>
   );
 };
