@@ -10,7 +10,6 @@ const Report = () => {
     async function fetch() {
       const res = await axios.get(`${API}?key=${API_KEY}&q=le111rx`);
       const data = res.data;
-      console.log(data);
       setWeather({
         town: data.location.name,
         region: data.location.region,
@@ -23,8 +22,12 @@ const Report = () => {
     }
     fetch();
   }, []);
+  const cloudStyle = `fas fa-cloud ${weather.tempC <= 30 && "rainCloud"}`;
   return (
     <div className={weather.time_hours >= 19 ? "Report nightMode" : "Report"}>
+      <i id="cloud1" className={cloudStyle} />
+      <i id="cloud2" className={cloudStyle} />
+      <i id="cloud3" className={cloudStyle} />
       <div className="time">
         Accurate at: {weather.time_hours}:{weather.time_minutes}
       </div>
