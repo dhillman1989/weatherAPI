@@ -5,7 +5,7 @@ const QueryForm = (props) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        props.setQuery(props.query);
+        props.setQuery(props.inputValue);
       }}>
       <input
         value={props.inputValue}
