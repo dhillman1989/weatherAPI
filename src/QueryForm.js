@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 const QueryForm = (props) => {
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        props.setQuery(props.inputValue);
+        props.setQuery(props.inputValue.toUpperCase());
       }}>
       <input
         value={props.inputValue}

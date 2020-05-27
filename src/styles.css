@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 .App {
@@ -41,6 +42,17 @@ div {
 
 .nightMode {
   background-color: rgb(6, 50, 107);
+}
+
+.sun {
+  width: 75px;
+  height: 75px;
+  z-index: 2;
+  position: absolute;
+  left: 50px;
+  background: orange;
+  border-radius: 50%;
+  top: 50px;
 }
 
 .fa-cloud {
@@ -92,4 +104,75 @@ div {
 
 .stormCloud {
   color: rgb(41, 41, 41);
+}
+
+.hidden {
+  display: hidden;
+}
+
+.fa-snowflake {
+  position: absolute;
+  font-size: 5rem;
+  top: -100px;
+}
+
+#snow1,
+#snow2,
+#snow3 {
+  /* left: 100%; */
+  z-index: 0;
+  animation-name: snowfall;
+  animation-iteration-count: infinite;
+  animation-direction: forwards;
+  animation-timing-function: linear;
+}
+
+#snow1 {
+  left: 25%;
+  animation-duration: 10s;
+  animation-delay: 4s;
+}
+
+#snow2 {
+  left: 50%;
+  animation-duration: 10s;
+}
+
+#snow3 {
+  left: 75%;
+  animation-duration: 10s;
+  animation-delay: 2s;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-20px, 62vh);
+  }
+  100% {
+    transform: translate(0, 125vh);
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input,
+form button {
+  width: 15rem;
+  padding: 0.5rem;
+  font-size: 30px;
+  border-radius: 20px;
+  border: none;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+form button {
+  background: rgb(201, 255, 75);
 }

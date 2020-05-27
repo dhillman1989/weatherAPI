@@ -16,7 +16,7 @@ export default function App() {
   return (
     <div
       className={
-        weather.time_hours >= 19 || weather.time_hours <= 6
+        weather.time_hours >= 19 || weather.time_hours <= 7
           ? "App nightMode"
           : "App"
       }>
