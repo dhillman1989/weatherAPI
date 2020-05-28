@@ -41,12 +41,7 @@ const Report = (props) => {
     weather.condition && weather.condition.toLowerCase().includes("snow");
 
   return (
-    <div
-      className={
-        weather.time_hours >= 19 || weather.time_hours <= 6
-          ? classes.App && classes.nightMode
-          : classes.App
-      }>
+    <div>
       {/* Sun */}
       {sun && <div className={classes.sun} />}
 
@@ -58,11 +53,11 @@ const Report = (props) => {
             className={`fas fa-cloud  ${classes.clouds} ${classes.cloud1}`}
           />
           <i
-            id="cloud1"
+            id="cloud2"
             className={`fas fa-cloud  ${classes.clouds} ${classes.cloud2}`}
           />
           <i
-            id="cloud1"
+            id="cloud3"
             className={`fas fa-cloud  ${classes.clouds} ${classes.cloud3}`}
           />
         </div>

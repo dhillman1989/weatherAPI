@@ -8,6 +8,7 @@ const API = "https://api.weatherapi.com/v1/current.json";
 const API_KEY = "d46f7b4a013944ba8b1125130202605";
 
 function App(props) {
+  const { classes } = props;
   const [weather, setWeather] = useState("");
   const [API_QUERY, setAPI_QUERY] = useState("london");
   const [inputValue, setInputValue] = useState("london");
@@ -17,8 +18,8 @@ function App(props) {
     <div
       className={
         weather.time_hours >= 19 || weather.time_hours <= 7
-          ? props.classes.nightMode
-          : props.classes.App
+          ? `${classes.App} ${classes.nightMode}`
+          : classes.App
       }>
       <Report
         query={API_QUERY}

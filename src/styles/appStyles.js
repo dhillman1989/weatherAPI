@@ -1,9 +1,27 @@
 const styles = () => ({
-  root: {
-    padding: "0",
-    margin: "0",
-    overflow: "hidden"
+  //GLOBAL ANIMATIONS//
+  "@global": {
+    "@keyframes cloudflow": {
+      "0%": {
+        transform: "translateX(0)"
+      },
+      "100%": {
+        transform: "translateX(-125vw)"
+      }
+    },
+    "@keyframes snowfall": {
+      "0%": {
+        transform: "translate(0, 0)"
+      },
+      "50%": {
+        transform: "translate(-20px, 62vh)"
+      },
+      "100%": {
+        transform: "translate(0, 125vh)"
+      }
+    }
   },
+
   App: {
     fontFamily: "sans-serif",
     textAlign: "center",
@@ -22,7 +40,8 @@ const styles = () => ({
     }
   },
   nightMode: {
-    backgroundColor: "rgb(6, 50, 107)"
+    backgroundColor: "rgb(6, 50, 107)",
+    height: "100vh"
   },
   Report: {
     display: "flex",
@@ -73,17 +92,6 @@ const styles = () => ({
     animationDelay: "3s"
   },
 
-  "@global": {
-    "@keyframes cloudflow": {
-      "0%": {
-        transform: "translateX(0)"
-      },
-      "100%": {
-        transform: "translateX(-125vw)"
-      }
-    }
-  },
-
   hidden: {
     display: "hidden"
   },
@@ -115,21 +123,6 @@ const styles = () => ({
     animationDuration: "10s",
     animationDelay: "2s"
   },
-
-  "@global": {
-    "@keyframes snowfall": {
-      "0%": {
-        transform: "translate(0, 0)"
-      },
-      "50%": {
-        transform: "translate(-20px, 62vh)"
-      },
-      "100%": {
-        transform: "translate(0, 125vh)"
-      }
-    }
-  },
-
   QueryForm: {
     "& form": {
       display: "flex",
