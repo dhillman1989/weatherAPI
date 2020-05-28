@@ -1,4 +1,6 @@
 import React from "react";
+import { withStyles } from "@material-ui/styles";
+import styles from "./styles/appStyles";
 
 const QueryForm = (props) => {
   return (
@@ -16,4 +18,4 @@ const QueryForm = (props) => {
   );
 };
 
-export default QueryForm;
+export default withStyles(styles)(QueryForm);

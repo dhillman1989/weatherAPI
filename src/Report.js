@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import axios from "axios";
 
 import QueryForm from "./QueryForm";
-import { mergeClasses } from "@material-ui/styles";
+import { withStyles } from "@material-ui/styles";
+
+import styles from "./styles/appStyles";
 
 const Report = (props) => {
   const {
@@ -42,11 +44,11 @@ const Report = (props) => {
     <div
       className={
         weather.time_hours >= 19 || weather.time_hours <= 6
-          ? "Report nightMode"
-          : "Report"
+          ? classes.App && classes.nightMode
+          : classes.App
       }>
       {/* Sun */}
-      {sun && <div className="sun" />}
+      {sun && <div className={classes.sun} />}
 
       {/*  clouds */}
       {cloud && (
@@ -67,7 +69,7 @@ const Report = (props) => {
       )}
 
       {/* snowflakes */}
-      {snow && <i id="snow1" />}
+      {snow && <i class="snowflakes snow1" />}
 
       {/* Main Details */}
       <div className="time">
@@ -91,4 +93,4 @@ const Report = (props) => {
   );
 };
 
-export default Report;
+export default withStyles(styles)(Report);

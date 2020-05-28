@@ -24,6 +24,15 @@ const styles = () => ({
   nightMode: {
     backgroundColor: "rgb(6, 50, 107)"
   },
+  Report: {
+    display: "flex",
+    flexDirection: "Column",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    overflow: "hidden"
+  },
+
   sun: {
     width: "75px",
     height: "75px",
@@ -60,17 +69,86 @@ const styles = () => ({
 
   cloud3: {
     top: "35%",
-    animationDuration: "15s",
+    animationDuration: "10s",
     animationDelay: "3s"
   },
 
-  "@keyframes cloudflow": {
-    "0%": {
-      transform: "translateX(0)"
-    },
-    "100%": {
-      transform: "translateX(-125vw)"
+  "@global": {
+    "@keyframes cloudflow": {
+      "0%": {
+        transform: "translateX(0)"
+      },
+      "100%": {
+        transform: "translateX(-125vw)"
+      }
+    }
+  },
+
+  hidden: {
+    display: "hidden"
+  },
+
+  snowflakes: {
+    zIndex: "0",
+    animationName: "snowfall",
+    animationIterationCount: "infinite",
+    animationDirection: "forwards",
+    animationTimingFunction: "linear",
+    position: "absolute",
+    fontSize: "5rem",
+    top: "-100px"
+  },
+
+  snow1: {
+    left: "25%",
+    animationDuration: "10s",
+    animationDelay: "4s"
+  },
+
+  snow2: {
+    left: "50%",
+    animationDuration: "10s"
+  },
+
+  snow3: {
+    left: "75%",
+    animationDuration: "10s",
+    animationDelay: "2s"
+  },
+
+  "@global": {
+    "@keyframes snowfall": {
+      "0%": {
+        transform: "translate(0, 0)"
+      },
+      "50%": {
+        transform: "translate(-20px, 62vh)"
+      },
+      "100%": {
+        transform: "translate(0, 125vh)"
+      }
+    }
+  },
+
+  QueryForm: {
+    "& form": {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      "& input, button": {
+        width: "15rem",
+        padding: "0.5rem",
+        fontSize: "30px",
+        borderRadius: "20px",
+        border: "none",
+        marginBottom: "10px",
+        boxshadow: "5px 5px 5px rgba(0, 0, 0, 0.3)"
+      },
+      "& button": {
+        background: "rgb(201, 255, 75)"
+      }
     }
   }
 });
+
 export default styles;
