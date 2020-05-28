@@ -34,14 +34,32 @@ const styles = () => ({
     height: "100vh",
     background: "rgb(44, 135, 255)",
     padding: "10px",
-    "& h1,h2,h3,h4,h5,h6,p,span,a,div": {
+    "& h1,h2,h3,h4,h5,h6,p,span,a": {
       zIndex: "0",
       textShadow: "2px 2px 5px #000"
+    },
+    "& .sunMoon": {
+      width: "75px",
+      height: "75px",
+      zIndex: "2",
+      position: "absolute",
+      left: "25%",
+      backgroundColor: "rgb(255, 195, 82)",
+      borderRadius: "50%",
+      top: "50px",
+      boxShadow: "0 0 10px 5px rgb(255, 205, 69)",
+      transform: "translateX(0vw)",
+      transition: "transform 4s, background-color 4s "
     }
   },
   nightMode: {
     backgroundColor: "rgb(6, 50, 107)",
-    height: "100vh"
+    height: "100vh",
+    "& .sunMoon": {
+      background: "#fff",
+      boxShadow: "0 0 20px 10px #fff",
+      transform: "translateX(50vw)"
+    }
   },
   Report: {
     display: "flex",
@@ -49,20 +67,10 @@ const styles = () => ({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    overflow: "hidden"
-  },
-
-  sun: {
-    width: "75px",
-    height: "75px",
-    zIndex: "2",
-    position: "absolute",
-    left: "50px",
-    background: "rgb(255, 195, 82)",
-    borderRadius: "50%",
-    top: "50px",
-    boxShadow:
-      "0 0 20px 10px inset rgb(255, 205, 69), 0 0 10px 5px rgb(255, 205, 69)"
+    overflow: "hidden",
+    "& .time, div, span, p, h1, h2": {
+      zIndex: "3"
+    }
   },
 
   clouds: {
@@ -74,6 +82,7 @@ const styles = () => ({
     fontSize: "5rem",
     position: "absolute",
     right: "-100px"
+    // fontSize: (props) => (props.time_hours >= 15 ? "2em" : "6em")
   },
 
   cloud1: {

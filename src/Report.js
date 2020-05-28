@@ -35,40 +35,38 @@ const Report = (props) => {
   }, [api_url, setWeather]);
   const cloud =
     weather.condition && weather.condition.toLowerCase().includes("cloud");
-  const sun =
-    weather.condition && weather.condition.toLowerCase().includes("sun");
   const snow =
     weather.condition && weather.condition.toLowerCase().includes("snow");
 
   return (
-    <div>
-      {/* Sun */}
-      {sun && <div className={classes.sun} />}
+    <div className={classes.Report}>
+      {/* Sun/Moon*/}
+      <div className="sunMoon" />
 
       {/*  clouds */}
-      {cloud && (
-        <div>
-          <i
-            id="cloud1"
-            className={`fas fa-cloud  ${classes.clouds} ${classes.cloud1}`}
-          />
-          <i
-            id="cloud2"
-            className={`fas fa-cloud  ${classes.clouds} ${classes.cloud2}`}
-          />
-          <i
-            id="cloud3"
-            className={`fas fa-cloud  ${classes.clouds} ${classes.cloud3}`}
-          />
-        </div>
-      )}
+      <div>
+        <i
+          id="cloud1"
+          className={`fas fa-cloud  ${classes.clouds} ${classes.cloud1}`}
+        />
+        <i
+          id="cloud2"
+          className={`fas fa-cloud  ${classes.clouds} ${classes.cloud2}`}
+        />
+        <i
+          id="cloud3"
+          className={`fas fa-cloud  ${classes.clouds} ${classes.cloud3}`}
+        />
+      </div>
 
       {/* snowflakes */}
       {snow && <i class="snowflakes snow1" />}
 
       {/* Main Details */}
       <div className="time">
-        Accurate at: {weather.time_hours}:{weather.time_minutes}
+        <span>
+          Accurate at: {weather.time_hours}:{weather.time_minutes}
+        </span>
       </div>
       <h1>{weather.town}</h1>
       <h4>
