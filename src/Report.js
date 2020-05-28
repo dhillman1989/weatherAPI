@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 
 import QueryForm from "./QueryForm";
+import { mergeClasses } from "@material-ui/styles";
 
 const Report = (props) => {
   const {
@@ -10,7 +11,8 @@ const Report = (props) => {
     api_url,
     setWeather,
     setInputValue,
-    setQuery
+    setQuery,
+    classes
   } = props;
   useEffect(() => {
     async function fetch() {
@@ -49,9 +51,18 @@ const Report = (props) => {
       {/*  clouds */}
       {cloud && (
         <div>
-          <i id="cloud1" className="fas fa-cloud" />
-          <i id="cloud2" className="fas fa-cloud" />
-          <i id="cloud3" className="fas fa-cloud" />
+          <i
+            id="cloud1"
+            className={`fas fa-cloud  ${classes.clouds} ${classes.cloud1}`}
+          />
+          <i
+            id="cloud1"
+            className={`fas fa-cloud  ${classes.clouds} ${classes.cloud2}`}
+          />
+          <i
+            id="cloud1"
+            className={`fas fa-cloud  ${classes.clouds} ${classes.cloud3}`}
+          />
         </div>
       )}
 

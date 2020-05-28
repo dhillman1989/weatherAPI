@@ -8,7 +8,7 @@ const QueryForm = (props) => {
         props.setQuery(props.inputValue.toUpperCase());
       }}>
       <input
-        value={props.inputValue}
+        value={props.query}
         onChange={(e) => props.setInputValue(e.target.value)}
       />
       <button>Check Weather</button>

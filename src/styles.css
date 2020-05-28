@@ -1,36 +1,3 @@
-body {
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-}
-
-.App {
-  font-family: sans-serif;
-  text-align: center;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  height: 100vh;
-  background: rgb(44, 135, 255);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span,
-a,
-div {
-  z-index: 0;
-  text-shadow: 2px 2px 5px #000;
-}
-
 .Report {
   display: flex;
   flex-direction: column;
@@ -38,55 +5,6 @@ div {
   justify-content: center;
   width: 100%;
   overflow: hidden;
-}
-
-.nightMode {
-  background-color: rgb(6, 50, 107);
-}
-
-.sun {
-  width: 75px;
-  height: 75px;
-  z-index: 2;
-  position: absolute;
-  left: 50px;
-  background: orange;
-  border-radius: 50%;
-  top: 50px;
-}
-
-.fa-cloud {
-  font-size: 5rem;
-  position: absolute;
-  right: -100px;
-}
-
-#cloud1,
-#cloud2,
-#cloud3 {
-  /* left: 100%; */
-  z-index: 0;
-  animation-name: cloudflow;
-  animation-iteration-count: infinite;
-  animation-direction: forwards;
-  animation-timing-function: linear;
-}
-
-#cloud1 {
-  top: 15%;
-  animation-duration: 16s;
-  animation-delay: 5s;
-}
-
-#cloud2 {
-  top: 25%;
-  animation-duration: 14s;
-}
-
-#cloud3 {
-  top: 35%;
-  animation-duration: 15s;
-  animation-delay: 3s;
 }
 
 @keyframes cloudflow {

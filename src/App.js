@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import "./styles.css";
+import { withStyles } from "@material-ui/styles";
 
-import "./styles.css";
+import styles from "./styles/appStyles";
 import Report from "./Report";
 
 const API = "https://api.weatherapi.com/v1/current.json";
 const API_KEY = "d46f7b4a013944ba8b1125130202605";
 
-export default function App() {
+function App(props) {
   const [weather, setWeather] = useState("");
   const [API_QUERY, setAPI_QUERY] = useState("london");
   const [inputValue, setInputValue] = useState("london");
@@ -17,8 +17,8 @@ export default function App() {
     <div
       className={
         weather.time_hours >= 19 || weather.time_hours <= 7
-          ? "App nightMode"
-          : "App"
+          ? props.classes.nightMode
+          : props.classes.App
       }>
       <Report
         query={API_QUERY}
@@ -32,3 +32,5 @@ export default function App() {
     </div>
   );
 }
+
+export default withStyles(styles)(App);
