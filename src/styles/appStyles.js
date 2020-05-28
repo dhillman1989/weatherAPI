@@ -1,4 +1,4 @@
-const styles = () => ({
+export default {
   //GLOBAL ANIMATIONS//
   "@global": {
     "@keyframes cloudflow": {
@@ -49,7 +49,7 @@ const styles = () => ({
       top: "50px",
       boxShadow: "0 0 10px 5px rgb(255, 205, 69)",
       transform: "translateX(0vw)",
-      transition: "transform 4s, background-color 4s "
+      transition: "transform 4s, background-color 4s, box-shadow 4s "
     }
   },
   nightMode: {
@@ -57,7 +57,7 @@ const styles = () => ({
     height: "100vh",
     "& .sunMoon": {
       background: "#fff",
-      boxShadow: "0 0 20px 10px #fff",
+      boxShadow: "0 0 10px 5px #fff",
       transform: "translateX(50vw)"
     }
   },
@@ -81,8 +81,8 @@ const styles = () => ({
     animationTimingFunction: "linear",
     fontSize: "5rem",
     position: "absolute",
-    right: "-100px"
-    // fontSize: (props) => (props.time_hours >= 15 ? "2em" : "6em")
+    right: "-100px",
+    opacity: "0.3"
   },
 
   cloud1: {
@@ -151,6 +151,4 @@ const styles = () => ({
       }
     }
   }
-});
-
-export default styles;
+};
