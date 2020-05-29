@@ -136,8 +136,10 @@ const styles = {
     animationDirection: "forwards",
     animationTimingFunction: "linear",
     position: "absolute",
+    transition: "opacity 2s",
     fontSize: "5rem",
-    top: "-100px"
+    top: "-100px",
+    opacity: (props) => (props.weather.condition.includes("snow") ? "0.7" : "0")
   },
 
   snow1: {

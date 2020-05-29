@@ -63,7 +63,15 @@ const Report = (props) => {
         </div>
 
         {/* snowflakes */}
-        {<i className="snowflakes snow1" />}
+        <i
+          className={`fas fa-snowflake ${classes.snowflakes} ${classes.snow1}`}
+        />
+        <i
+          className={`fas fa-snowflake ${classes.snowflakes} ${classes.snow2}`}
+        />
+        <i
+          className={`fas fa-snowflake ${classes.snowflakes} ${classes.snow3}`}
+        />
 
         {/* Main Details */}
         <div className="time">
