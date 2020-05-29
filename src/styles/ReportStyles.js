@@ -25,7 +25,7 @@ const styles = {
   },
 
   clouds: {
-    zIndex: "0",
+    zIndex: "3",
     animationName: "cloudflow",
     animationIterationCount: "infinite",
     animationDirection: "forwards",
@@ -35,7 +35,7 @@ const styles = {
     right: "-100px",
     transition: "opacity 2s",
     opacity: (props) =>
-      props.weather.condition.includes("cloud") ? "0.6" : "0"
+      props.weather.condition.includes("cloud") ? "0.7" : "0"
   },
 
   cloud1: {
