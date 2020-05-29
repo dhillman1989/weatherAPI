@@ -6,7 +6,7 @@ import { withStyles } from "@material-ui/styles";
 
 import styles from "./styles/ReportStyles";
 
-const Report = (props) => {
+const Report = props => {
   const [errorMessage, setErrorMessage] = useState("");
   const {
     inputValue,
@@ -85,6 +85,8 @@ const Report = (props) => {
         </h4>
         <h5>
           {weather.tempC}&#730;c - {weather.tempF}&#730;F
+          <br />
+          {weather.condition}
         </h5>
 
         <QueryForm

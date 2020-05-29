@@ -36,7 +36,7 @@ const styles = {
     overflow: "hidden",
     height: "100vh",
     transition: "background-color 4s",
-    background: (props) =>
+    background: props =>
       props.weather.time_hours > dawn && props.weather.time_hours < dusk
         ? "rgb(44,135,255)"
         : "rgb(6, 50, 107)",
@@ -51,19 +51,19 @@ const styles = {
       zIndex: "1",
       position: "absolute",
       left: "-10%",
-      backgroundColor: (props) =>
+      backgroundColor: props =>
         props.weather.time_hours > dawn && props.weather.time_hours < dusk
           ? "rgb(255, 195, 82)"
           : "rgb(230,230,230)",
       borderRadius: "50%",
       top: "50px",
-      boxShadow: (props) =>
+      boxShadow: props =>
         props.weather.time_hours > dawn && props.weather.time_hours < dusk
           ? "0 0 10px 5px rgb(255, 205, 69)"
           : "0 0 10px 5px #fff",
       transition: "all 4s",
       background: "#fff",
-      transform: (props) =>
+      transform: props =>
         props.weather.time_hours > dawn && props.weather.time_hours < dusk
           ? "translateX(0vw)"
           : "translateX(50vw)"
@@ -76,7 +76,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     overflow: "hidden",
-    margin: "0 20px",
+    padding: "0 20px",
     "& .time, span, p, h1, h2, h3, h4, h5, h6": {
       zIndex: "40"
     },
@@ -105,8 +105,7 @@ const styles = {
     position: "absolute",
     right: "-100px",
     transition: "opacity 2s",
-    opacity: (props) =>
-      props.weather.condition.includes("cloud") ? "0.7" : "0"
+    opacity: props => (props.weather.condition.includes("cloud") ? "0.7" : "0")
   },
 
   cloud1: {
@@ -139,7 +138,7 @@ const styles = {
     transition: "opacity 2s",
     fontSize: "5rem",
     top: "-100px",
-    opacity: (props) => (props.weather.condition.includes("snow") ? "0.7" : "0")
+    opacity: props => (props.weather.condition.includes("snow") ? "0.7" : "0")
   },
 
   snow1: {
