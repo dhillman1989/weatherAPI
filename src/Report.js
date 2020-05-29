@@ -41,50 +41,52 @@ const Report = (props) => {
   }, [api_url, setWeather]);
 
   return (
-    <div className={classes.Report}>
-      {/* Sun/Moon*/}
-      <div className="sunMoon" />
+    <div className={classes.container}>
+      <div className={classes.Report}>
+        {/* Sun/Moon*/}
+        <div className="sunMoon" />
 
-      {/*  clouds */}
-      <div>
-        <i
-          id="cloud1"
-          className={`fas fa-cloud  ${classes.clouds} ${classes.cloud1}`}
-        />
-        <i
-          id="cloud2"
-          className={`fas fa-cloud  ${classes.clouds} ${classes.cloud2}`}
-        />
-        <i
-          id="cloud3"
-          className={`fas fa-cloud  ${classes.clouds} ${classes.cloud3}`}
+        {/*  clouds */}
+        <div>
+          <i
+            id="cloud1"
+            className={`fas fa-cloud  ${classes.clouds} ${classes.cloud1}`}
+          />
+          <i
+            id="cloud2"
+            className={`fas fa-cloud  ${classes.clouds} ${classes.cloud2}`}
+          />
+          <i
+            id="cloud3"
+            className={`fas fa-cloud  ${classes.clouds} ${classes.cloud3}`}
+          />
+        </div>
+
+        {/* snowflakes */}
+        {<i className="snowflakes snow1" />}
+
+        {/* Main Details */}
+        <div className="time">
+          <span>
+            Accurate at: {weather.time_hours}:{weather.time_minutes}
+          </span>
+        </div>
+        <h1>{weather.town}</h1>
+        <h4>
+          {weather.region}, {weather.country}
+        </h4>
+        <h5>
+          {weather.tempC}&#730;c - {weather.tempF}&#730;F
+        </h5>
+
+        <QueryForm
+          setInputValue={setInputValue}
+          inputValue={inputValue}
+          setWeather={setWeather}
+          setQuery={setQuery}
+          errorMessage={errorMessage}
         />
       </div>
-
-      {/* snowflakes */}
-      {<i className="snowflakes snow1" />}
-
-      {/* Main Details */}
-      <div className="time">
-        <span>
-          Accurate at: {weather.time_hours}:{weather.time_minutes}
-        </span>
-      </div>
-      <h1>{weather.town}</h1>
-      <h4>
-        {weather.region}, {weather.country}
-      </h4>
-      <h5>
-        {weather.tempC}&#730;c - {weather.tempF}&#730;F
-      </h5>
-
-      <QueryForm
-        setInputValue={setInputValue}
-        inputValue={inputValue}
-        setWeather={setWeather}
-        setQuery={setQuery}
-        errorMessage={errorMessage}
-      />
     </div>
   );
 };

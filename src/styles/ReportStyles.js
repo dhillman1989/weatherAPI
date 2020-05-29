@@ -1,4 +1,75 @@
+const dawn = 7;
+const dusk = 21;
+
 const styles = {
+  "@global": {
+    "@keyframes cloudflow": {
+      "0%": {
+        transform: "translateX(0)"
+      },
+      "100%": {
+        transform: "translateX(-125vw)"
+      }
+    },
+    "@keyframes snowfall": {
+      "0%": {
+        transform: "translate(0, 0)"
+      },
+      "50%": {
+        transform: "translate(-20px, 62vh)"
+      },
+      "100%": {
+        transform: "translate(0, 125vh)"
+      }
+    }
+  },
+
+  container: {
+    fontFamily: "sans-serif",
+    textAlign: "center",
+    color: "#fff",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100vw",
+    overflow: "hidden",
+    height: "100vh",
+    transition: "background-color 4s",
+    background: (props) =>
+      props.weather.time_hours > dawn && props.weather.time_hours < dusk
+        ? "rgb(44,135,255)"
+        : "rgb(6, 50, 107)",
+    "& h1,h2,h3,h4,h5,h6,p,span,a": {
+      zIndex: "0",
+      textShadow: "2px 2px 5px #000",
+      textWrap: "wrap"
+    },
+    "& .sunMoon": {
+      width: "75px",
+      height: "75px",
+      zIndex: "1",
+      position: "absolute",
+      left: "-10%",
+      backgroundColor: (props) =>
+        props.weather.time_hours > dawn && props.weather.time_hours < dusk
+          ? "rgb(255, 195, 82)"
+          : "rgb(230,230,230)",
+      borderRadius: "50%",
+      top: "50px",
+      boxShadow: (props) =>
+        props.weather.time_hours > dawn && props.weather.time_hours < dusk
+          ? "0 0 10px 5px rgb(255, 205, 69)"
+          : "0 0 10px 5px #fff",
+      transition: "all 4s",
+      background: "#fff",
+      transform: (props) =>
+        props.weather.time_hours > dawn && props.weather.time_hours < dusk
+          ? "translateX(0vw)"
+          : "translateX(50vw)"
+    }
+  },
+
   Report: {
     display: "flex",
     flexDirection: "Column",
@@ -59,7 +130,7 @@ const styles = {
   },
 
   snowflakes: {
-    zIndex: "0",
+    zIndex: "3",
     animationName: "snowfall",
     animationIterationCount: "infinite",
     animationDirection: "forwards",
