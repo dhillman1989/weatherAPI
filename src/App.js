@@ -24,7 +24,12 @@ function App(props) {
   const API_ENDPOINT = `${API}?key=${API_KEY}&q=${API_QUERY}`;
 
   return (
-    <div className={classes.App}>
+    <div
+      className={
+        weather.time_hours > 8 && weather.time_hours < 20
+          ? classes.App
+          : `${classes.App} ${classes.nightMode}`
+      }>
       <Report
         query={API_QUERY}
         weather={weather}
