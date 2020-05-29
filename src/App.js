@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { withStyles } from "@material-ui/styles";
 
-import styles from "./styles/appStyles";
 import Report from "./Report";
 
 const API = "https://api.weatherapi.com/v1/current.json";
@@ -24,7 +22,7 @@ function App(props) {
   const API_ENDPOINT = `${API}?key=${API_KEY}&q=${API_QUERY}`;
 
   return (
-    <div className={classes.App}>
+    <div className="App">
       <Report
         query={API_QUERY}
         weather={weather}
@@ -37,4 +35,4 @@ function App(props) {
   );
 }
 
-export default withStyles(styles)(App);
+export default App;
