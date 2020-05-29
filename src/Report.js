@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import QueryForm from "./QueryForm";
 import { withStyles } from "@material-ui/styles";
 
-import styles from "./styles/appStyles";
+import styles from "./styles/ReportStyles";
 
 const Report = (props) => {
+  const [errorMessage, setErrorMessage] = useState("");
   const {
     inputValue,
     weather,
@@ -18,25 +19,26 @@ const Report = (props) => {
   } = props;
   useEffect(() => {
     async function fetch() {
-      const res = await axios.get(api_url);
-      const data = res.data;
-      setWeather({
-        town: data.location.name,
-        region: data.location.region,
-        country: data.location.country,
-        tempC: data.current.temp_c,
-        tempF: data.current.temp_f,
-        condition: data.current.condition.text,
-        time_hours: data.current.last_updated.split(" ")[1].split(":")[0],
-        time_minutes: data.current.last_updated.split(" ")[1].split(":")[1]
-      });
+      try {
+        const res = await axios.get(api_url);
+        const data = res.data;
+        setWeather({
+          town: data.location.name,
+          region: data.location.region,
+          country: data.location.country,
+          tempC: data.current.temp_c,
+          tempF: data.current.temp_f,
+          condition: data.current.condition.text,
+          time_hours: data.current.last_updated.split(" ")[1].split(":")[0],
+          time_minutes: data.current.last_updated.split(" ")[1].split(":")[1]
+        });
+        setErrorMessage("");
+      } catch (err) {
+        setErrorMessage("Sorry, no match found... try again!");
+      }
     }
     fetch();
   }, [api_url, setWeather]);
-  const cloud =
-    weather.condition && weather.condition.toLowerCase().includes("cloud");
-  const snow =
-    weather.condition && weather.condition.toLowerCase().includes("snow");
 
   return (
     <div className={classes.Report}>
@@ -60,7 +62,7 @@ const Report = (props) => {
       </div>
 
       {/* snowflakes */}
-      {snow && <i class="snowflakes snow1" />}
+      {<i className="snowflakes snow1" />}
 
       {/* Main Details */}
       <div className="time">
@@ -81,6 +83,7 @@ const Report = (props) => {
         inputValue={inputValue}
         setWeather={setWeather}
         setQuery={setQuery}
+        errorMessage={errorMessage}
       />
     </div>
   );
