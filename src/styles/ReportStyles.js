@@ -20,7 +20,9 @@ const styles = {
       top: "50px",
       boxShadow: "0 0 10px 5px rgb(255, 205, 69)",
       transform: "translateX(0vw)",
-      transition: "transform 4s, background-color 4s, box-shadow 4s "
+      transition: "all 4s",
+      opacity: (props) =>
+        props.weather.condition.toLowerCase().includes("sun") ? "1" : "0"
     }
   },
 
@@ -45,7 +47,7 @@ const styles = {
   },
   cloud2: {
     top: "25%",
-    animationDuration: "14s"
+    animationDuration: ""
   },
 
   cloud3: {
