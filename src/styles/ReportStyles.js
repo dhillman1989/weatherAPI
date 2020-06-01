@@ -36,7 +36,7 @@ const styles = {
     overflow: "hidden",
     height: "100vh",
     transition: "background-color 4s",
-    background: props =>
+    background: (props) =>
       props.weather.time_hours > dawn && props.weather.time_hours < dusk
         ? "rgb(44,135,255)"
         : "rgb(6, 50, 107)",
@@ -51,23 +51,42 @@ const styles = {
       zIndex: "1",
       position: "absolute",
       left: "-10%",
-      backgroundColor: props =>
+      opacity: (props) =>
+        props.weather.condition.toLowerCase().includes("sun") ||
+        (props.weather.time_hours < dawn || props.weather.time_hours > dusk)
+          ? 1
+          : 0,
+      backgroundColor: (props) =>
         props.weather.time_hours > dawn && props.weather.time_hours < dusk
           ? "rgb(255, 195, 82)"
           : "rgb(230,230,230)",
       borderRadius: "50%",
       top: "50px",
-      boxShadow: props =>
+      boxShadow: (props) =>
         props.weather.time_hours > dawn && props.weather.time_hours < dusk
           ? "0 0 10px 5px rgb(255, 205, 69)"
           : "0 0 10px 5px #fff",
       transition: "all 4s",
       background: "#fff",
-      transform: props =>
+      transform: (props) =>
         props.weather.time_hours > dawn && props.weather.time_hours < dusk
           ? "translateX(0vw)"
           : "translateX(50vw)"
     }
+  },
+  overcastLayer: {
+    width: "100vw",
+    height: "100vh",
+    position: "absolute",
+    zIndex: 1,
+    backgroundColor: (props) =>
+      props.weather.condition.toLowerCase().includes("overcast")
+        ? "rgb(99,99,99)"
+        : "transparent",
+    background: (props) =>
+      props.weather.condition.toLowerCase().includes("overcast")
+        ? "linear-gradient(180deg, rgba(99,99,99,1) 7%, rgba(144,144,144,1) 32%, rgba(44,135,255,1) 100%)"
+        : "transparent"
   },
 
   Report: {
@@ -105,7 +124,8 @@ const styles = {
     position: "absolute",
     right: "-100px",
     transition: "opacity 2s",
-    opacity: props => (props.weather.condition.includes("cloud") ? "0.7" : "0")
+    opacity: (props) =>
+      props.weather.condition.includes("cloud") ? "0.7" : "0"
   },
 
   cloud1: {
@@ -138,7 +158,7 @@ const styles = {
     transition: "opacity 2s",
     fontSize: "5rem",
     top: "-100px",
-    opacity: props => (props.weather.condition.includes("snow") ? "0.7" : "0")
+    opacity: (props) => (props.weather.condition.includes("snow") ? "0.7" : "0")
   },
 
   snow1: {

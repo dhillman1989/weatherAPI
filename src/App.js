@@ -5,8 +5,7 @@ import Report from "./Report";
 const API = "https://api.weatherapi.com/v1/current.json";
 const API_KEY = "d46f7b4a013944ba8b1125130202605";
 
-function App(props) {
-  const { classes } = props;
+function App() {
   const [weather, setWeather] = useState({
     town: "Loading",
     region: "",

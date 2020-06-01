@@ -6,7 +6,7 @@ import { withStyles } from "@material-ui/styles";
 
 import styles from "./styles/ReportStyles";
 
-const Report = props => {
+const Report = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
   const {
     inputValue,
@@ -29,6 +29,7 @@ const Report = props => {
           tempC: data.current.temp_c,
           tempF: data.current.temp_f,
           condition: data.current.condition.text,
+          // condition: "OVERCAST",
           time_hours: data.current.last_updated.split(" ")[1].split(":")[0],
           time_minutes: data.current.last_updated.split(" ")[1].split(":")[1]
         });
@@ -42,6 +43,7 @@ const Report = props => {
 
   return (
     <div className={classes.container}>
+      <div className={classes.overcastLayer} />
       <div className={classes.Report}>
         {/* Sun/Moon*/}
         <div className="sunMoon" />

@@ -1,5 +1,6 @@
 const styles = {
   QueryForm: {
+    zIndex: 200,
     "& form": {
       display: "flex",
       flexDirection: "column",
