@@ -44,6 +44,7 @@ const Report = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.overcastLayer} />
+      <div className={classes.rain} />
       <div className={classes.Report}>
         {/* Sun/Moon*/}
         <div className="sunMoon" />

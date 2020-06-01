@@ -1,3 +1,5 @@
+import rainimage from "../images/rain.png";
+
 const dawn = 7;
 const dusk = 21;
 
@@ -20,6 +22,14 @@ const styles = {
       },
       "100%": {
         transform: "translate(0, 125vh)"
+      }
+    },
+    "@keyframes raining": {
+      "0%": {
+        transform: "translate(0, -25% )"
+      },
+      "100%": {
+        transform: "translate(-25%, 25%)"
       }
     }
   },
@@ -79,14 +89,11 @@ const styles = {
     height: "100vh",
     position: "absolute",
     zIndex: 1,
-    backgroundColor: (props) =>
-      props.weather.condition.toLowerCase().includes("overcast")
-        ? "rgb(99,99,99)"
-        : "transparent",
-    background: (props) =>
-      props.weather.condition.toLowerCase().includes("overcast")
-        ? "linear-gradient(180deg, rgba(99,99,99,1) 7%, rgba(144,144,144,1) 32%, rgba(44,135,255,1) 100%)"
-        : "transparent"
+    background:
+      "linear-gradient(180deg, rgba(99,99,99,1) 7%, rgba(144,144,144,1) 32%, rgba(44,135,255,0) 100%)",
+    opacity: (props) =>
+      props.weather.condition.toLowerCase().includes("overcast") ? 1 : 0,
+    transition: "opacity 4s"
   },
 
   Report: {
@@ -176,6 +183,25 @@ const styles = {
     left: "75%",
     animationDuration: "10s",
     animationDelay: "2s"
+  },
+
+  rain: {
+    width: "200vw",
+    height: "200vh",
+    backgroundImage: `url(${rainimage})`,
+    backgroundSize: "",
+    backgroundPosition: "-50%",
+    animationName: "raining",
+    animationTimingFuntion: "linear",
+    animationDirection: "forwards",
+    animationDuration: "0.2s",
+    filter: "blur(0px)",
+    position: "absolute",
+    animationIterationCount: "infinite",
+    zIndex: 6,
+    opacity: (props) =>
+      props.weather.condition.toLowerCase().includes("rain") ? 1 : 0,
+    transition: "opacity 6s"
   }
 };
 
