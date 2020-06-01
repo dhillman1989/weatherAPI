@@ -29,7 +29,7 @@ const styles = {
         transform: "translate(0, -25% )"
       },
       "100%": {
-        transform: "translate(-25%, 25%)"
+        transform: "translate(-15%, 25%)"
       }
     }
   },
@@ -189,13 +189,11 @@ const styles = {
     width: "200vw",
     height: "200vh",
     backgroundImage: `url(${rainimage})`,
-    backgroundSize: "",
-    backgroundPosition: "-50%",
     animationName: "raining",
-    animationTimingFuntion: "linear",
+    animationTimingFunction: "linear",
     animationDirection: "forwards",
-    animationDuration: "0.2s",
-    filter: "blur(0px)",
+    animationDuration: "2s",
+    filter: "blur(1px)",
     position: "absolute",
     animationIterationCount: "infinite",
     zIndex: 6,
