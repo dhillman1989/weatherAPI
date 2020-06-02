@@ -244,7 +244,8 @@ const styles = {
     right: 0,
     backgroundImage: `url(${lightningimage})`,
     display: (props) =>
-      props.weather.condition.toLowerCase().includes("lightning" || "thunder")
+      props.weather.condition.toLowerCase().includes("lightning") ||
+      props.weather.condition.toLowerCase().includes("thunder")
         ? "block"
         : "none"
   },
