@@ -1,4 +1,5 @@
 import rainimage from "../images/rain.png";
+import lightningimage from "../images/lightning.png";
 
 const dawn = 7;
 const dusk = 21;
@@ -30,6 +31,29 @@ const styles = {
       },
       "100%": {
         transform: "translate(-15%, 25%)"
+      }
+    },
+    "@keyframes lightningFlash": {
+      "0%": {
+        opacity: "0"
+      },
+      "2%": {
+        opacity: "1",
+        filter: "brightness(100%)"
+      },
+      "3%": {
+        opacity: "0.5",
+        filter: "brightness(500%)"
+      },
+      "4%": {
+        opacity: "0.8"
+      },
+      "5%": {
+        filter: "brightness(0)",
+        opacity: "0"
+      },
+      "100%": {
+        opacity: "0"
       }
     }
   },
@@ -142,7 +166,7 @@ const styles = {
   },
   cloud2: {
     top: "25%",
-    animationDuration: ""
+    animationDuration: "14s"
   },
 
   cloud3: {
@@ -198,9 +222,39 @@ const styles = {
     animationIterationCount: "infinite",
     zIndex: 6,
     opacity: (props) =>
-      props.weather.condition.toLowerCase().includes("rain") ? 1 : 0,
-    transition: "opacity 6s"
+      props.weather.condition.toLowerCase().includes("rain") ||
+      props.weather.condition.toLowerCase().includes("shower")
+        ? 1
+        : 0,
+    transition: "opacity 3s"
+  },
+
+  lightning: {
+    width: "50vw",
+    height: "100vh",
+    animationName: "lightningFlash",
+    animationDuration: "5s",
+    animationTimingFunction: "linear",
+    animationIterationCount: "infinite",
+    animationDirection: "forwards",
+    minHeight: "500px",
+    position: "absolute",
+    zIndex: 200,
+    top: 0,
+    right: 0,
+    backgroundImage: `url(${lightningimage})`,
+    display: (props) =>
+      props.weather.condition.toLowerCase().includes("lightning" || "thunder")
+        ? "block"
+        : "none"
+  },
+
+  mist: {
+    filter: "blur(50px)",
+    color: "rgb(255,255,255)",
+    border: "1px solid rgb(255,255,255)",
+    backgroundColor: "rgb(255,255,255)",
+    height: "100px"
   }
 };
-
 export default styles;
