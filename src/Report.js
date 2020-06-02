@@ -29,7 +29,6 @@ const Report = (props) => {
           tempC: data.current.temp_c,
           tempF: data.current.temp_f,
           condition: data.current.condition.text,
-          // condition: "OVERCAST",
           time_hours: data.current.last_updated.split(" ")[1].split(":")[0],
           time_minutes: data.current.last_updated.split(" ")[1].split(":")[1]
         });
@@ -43,6 +42,7 @@ const Report = (props) => {
 
   return (
     <div className={classes.container}>
+      <div className={classes.mist} />
       <div className={classes.overcastLayer} />
       <div className={classes.rain} />
       <div className={classes.lightning} />

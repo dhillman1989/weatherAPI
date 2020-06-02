@@ -43,7 +43,7 @@ const styles = {
       },
       "3%": {
         opacity: "0.5",
-        filter: "brightness(500%)"
+        filter: "brightness(300%)"
       },
       "4%": {
         opacity: "0.8"
@@ -230,8 +230,8 @@ const styles = {
   },
 
   lightning: {
-    width: "50vw",
-    height: "100vh",
+    width: "100%",
+    height: "100%",
     animationName: "lightningFlash",
     animationDuration: "5s",
     animationTimingFunction: "linear",
@@ -241,7 +241,7 @@ const styles = {
     position: "absolute",
     zIndex: 200,
     top: 0,
-    right: 0,
+    left: "25vw",
     backgroundImage: `url(${lightningimage})`,
     display: (props) =>
       props.weather.condition.toLowerCase().includes("lightning") ||
@@ -251,11 +251,24 @@ const styles = {
   },
 
   mist: {
-    filter: "blur(50px)",
-    color: "rgb(255,255,255)",
-    border: "1px solid rgb(255,255,255)",
-    backgroundColor: "rgb(255,255,255)",
-    height: "100px"
+    filter: "blur(25px)",
+    borderRadius: "30%",
+    color: "rgb(200,200,200)",
+    border: "50px solid rgba(5,5,5, 0.3)",
+    backgroundColor: "rgb(200,200,200)",
+    position: "absolute",
+    bottom: "-25vh",
+    zIndex: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    height: "60vh",
+    width: "150vw",
+    transition: "opacity 4s",
+    opacity: (props) =>
+      props.weather.condition.toLowerCase().includes("mist") ||
+      props.weather.condition.toLowerCase().includes("fog")
+        ? 0.6
+        : 0
   }
 };
 export default styles;
