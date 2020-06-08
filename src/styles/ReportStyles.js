@@ -156,7 +156,7 @@ const styles = {
     right: "-100px",
     transition: "opacity 2s",
     opacity: (props) =>
-      props.weather.condition.includes("cloud") ? "0.7" : "0"
+      props.weather.condition.toLowerCase().includes("cloud") ? "0.7" : "0"
   },
 
   cloud1: {
@@ -247,7 +247,8 @@ const styles = {
       props.weather.condition.toLowerCase().includes("lightning") ||
       props.weather.condition.toLowerCase().includes("thunder")
         ? "block"
-        : "none"
+        : "none",
+    backgroundRepeat: "no-repeat"
   },
 
   mist: {
