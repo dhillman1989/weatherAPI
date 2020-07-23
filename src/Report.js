@@ -80,7 +80,7 @@ const Report = (props) => {
         {/* Main Details */}
         <div className="time">
           <span>
-            Accurate at: {weather.time_hours}:{weather.time_minutes}
+            Latest data at: {weather.time_hours}:{weather.time_minutes}
           </span>
         </div>
         <h1>{weather.town}</h1>
